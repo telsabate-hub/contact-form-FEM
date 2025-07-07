@@ -8,31 +8,36 @@
   
   <title>Frontend Mentor | Contact form</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main>
+    <section>
+      <h1>Contact Us</h1>
+      <form>
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" name="first-name" autocomplete="given-name">
+        <span id="firstNameError" class="error-message">This field is required</span>
 
-  Contact Us
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" name="last-name" autocomplete="family-name">
+        <span id="lastNameError" class="error-message">This field is required</span>
 
-  First Name
-  This field is required
+        <label for="email">Email Address</label>
+        <input id="email" type="text" name="email" autocomplete="email">
+        <span id="emailError" class="error-message">Please enter a valid email address</span>
 
-  Last Name
-  This field is required
-
-  Email Address
-  Please enter a valid email address
-  This field is required
-
-  Query Type
-  General Enquiry
-  Support Request
-  Please select a query type
-
+        <fieldset>
+          <legend>Query Type</legend>
+          <input type="radio" id="generalEnquiry" name="query" value="general">
+          <label for="generalEnquiry">General Enquiry</label>
+          <input type="radio" id="supportRequest" name="query" value="support">
+          <label for="supportRequest">Support Request</label>
+      </fieldset>
+      <span id="queryTypeError" class="error-message">Please select a query type</span>
+      </form>
+    </section>
+  </main>
+  
   Message
   This field is required
 
@@ -44,9 +49,5 @@
   Message Sent!
   Thanks for completing the form. We'll be in touch soon!
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
 </body>
 </html>
