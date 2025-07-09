@@ -1,0 +1,62 @@
+@import "./config";
+
+main {
+    
+}
+
+section {
+    margin: 133px auto;
+    background-color: $white;
+    width: 500px;
+    padding: 40px;
+    border-radius: 16px;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+form {
+    margin-top: 35px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+
+    &::after {
+        content: "\a0\a0\a0*";
+    }
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    &::after {
+        content: "\a0\a0\a0*";
+    }
+}
+
+input[type="text"] {
+    margin-top: 10px;
+    font-size: 2.75rem;
+    border-radius: 8px;
+    border: 1px solid $grey_500;
+    width: 100%;
+}
+
+.name-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.name-wrapper {
+    width: 50%;
+}
+
+.success-msg, .error-message {
+    display: none;
+}
