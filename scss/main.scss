@@ -1,13 +1,9 @@
 @import "./config";
 
-main {
-    
-}
-
 section {
     margin: 133px auto;
     background-color: $white;
-    width: 500px;
+    max-width: 765px;
     padding: 40px;
     border-radius: 16px;
 }
@@ -20,40 +16,63 @@ form {
     margin-top: 35px;
 }
 
-label {
+.form-label {
     display: block;
     font-size: 1rem;
 
     &::after {
-        content: "\a0\a0\a0*";
+        @include add_require_symbol;
     }
 }
 
 fieldset {
+    @include flex_gap_20;
+
     border: none;
+    margin: 30px 0;
+
+    & div {
+        @include set_border;
+
+        padding: 14px 25px;
+    }
+
+    & label {
+        font-size: 1.1875rem;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
 }
 
 legend {
+    margin-bottom: 20px;
+
     &::after {
-        content: "\a0\a0\a0*";
+        @include add_require_symbol;
     }
 }
 
 input[type="text"] {
+    @include set_border;
+
     margin-top: 10px;
     font-size: 2.75rem;
-    border-radius: 8px;
-    border: 1px solid $grey_500;
     width: 100%;
 }
 
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
 .name-container {
-    display: flex;
-    gap: 20px;
+    @include flex_gap_20;
+
     margin-bottom: 30px;
 }
 
-.name-wrapper {
+.name-wrapper, .query-type-wrapper {
     width: 50%;
 }
 

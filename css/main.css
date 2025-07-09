@@ -15,7 +15,7 @@ body {
 section {
   margin: 133px auto;
   background-color: hsl(0, 0%, 100%);
-  width: 500px;
+  max-width: 765px;
   padding: 40px;
   border-radius: 16px;
 }
@@ -28,28 +28,52 @@ form {
   margin-top: 35px;
 }
 
-label {
+.form-label {
   display: block;
   font-size: 1rem;
 }
-label::after {
+.form-label::after {
   content: "   *";
+  color: hsl(169, 82%, 27%);
 }
 
 fieldset {
+  display: flex;
+  gap: 20px;
   border: none;
+  margin: 30px 0;
+}
+fieldset div {
+  border-radius: 8px;
+  border: 1px solid hsl(186, 15%, 59%);
+  padding: 14px 25px;
+}
+fieldset label {
+  font-size: 1.1875rem;
+  vertical-align: middle;
+  padding-left: 10px;
 }
 
+legend {
+  margin-bottom: 20px;
+}
 legend::after {
   content: "   *";
+  color: hsl(169, 82%, 27%);
 }
 
 input[type=text] {
-  margin-top: 10px;
-  font-size: 2.75rem;
   border-radius: 8px;
   border: 1px solid hsl(186, 15%, 59%);
+  margin-top: 10px;
+  font-size: 2.75rem;
   width: 100%;
+}
+
+input[type=radio] {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
 .name-container {
@@ -58,7 +82,7 @@ input[type=text] {
   margin-bottom: 30px;
 }
 
-.name-wrapper {
+.name-wrapper, .query-type-wrapper {
   width: 50%;
 }
 

@@ -21,37 +21,42 @@
       <form>
         <div class="name-container">
           <div class="name-wrapper">
-            <label for="firstName">First Name</label>
+            <label for="firstName" class="form-label">First Name</label>
             <input id="firstName" type="text" name="first-name" autocomplete="given-name">
             <span id="firstNameError" class="error-message">This field is required</span>
           </div>
   
           <div class="name-wrapper">
-            <label for="lastName">Last Name</label>
+            <label for="lastName" class="form-label">Last Name</label>
             <input id="lastName" type="text" name="last-name" autocomplete="family-name">
             <span id="lastNameError" class="error-message">This field is required</span>
           </div>
         </div>
 
-        <label for="email">Email Address</label>
+        <label for="email" class="form-label">Email Address</label>
         <input id="email" type="text" name="email" autocomplete="email">
         <span id="emailError" class="error-message">Please enter a valid email address</span>
 
         <fieldset>
           <legend>Query Type</legend>
-          <input type="radio" id="generalEnquiry" name="query" value="general">
-          <label for="generalEnquiry">General Enquiry</label>
-          <input type="radio" id="supportRequest" name="query" value="support">
-          <label for="supportRequest">Support Request</label>
+
+          <div class="query-type-wrapper">
+            <input type="radio" id="generalEnquiry" name="query" value="general">
+            <label for="generalEnquiry">General Enquiry</label>
+          </div>
+          <div class="query-type-wrapper">
+            <input type="radio" id="supportRequest" name="query" value="support">
+            <label for="supportRequest">Support Request</label>
+          </div>
         </fieldset>
         <span id="queryTypeError" class="error-message">Please select a query type</span>
 
-        <label for="message">Message</label>
+        <label for="message" class="form-label">Message</label>
         <textarea id="message" name=""></textarea>
         <span id="messageError" class="error-message">This field is required</span>
 
         <input type="checkbox" id="consent" name="consent">
-        <label for="consent">I consent to being contacted by the team</label>
+        <label for="consent" class="form-label">I consent to being contacted by the team</label>
         <span id="consentError" class="error-message">To submit this form, please consent to being contacted</span>
 
         <button type="submit">Submit</button>
