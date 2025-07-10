@@ -21,7 +21,7 @@ form {
     font-size: 1rem;
 
     &::after {
-        @include add_require_symbol;
+        @include add_require_symbol("\a0\a0\a0*");
     }
 }
 
@@ -41,6 +41,7 @@ fieldset {
         font-size: 1.1875rem;
         vertical-align: middle;
         padding-left: 10px;
+        cursor: pointer;
     }
 }
 
@@ -48,22 +49,65 @@ legend {
     margin-bottom: 20px;
 
     &::after {
-        @include add_require_symbol;
+        @include add_require_symbol("\a0\a0\a0*");
     }
 }
 
-input[type="text"] {
+input[type=text] {
     @include set_border;
+    @include set_font(1.125rem);
 
     margin-top: 10px;
-    font-size: 2.75rem;
     width: 100%;
+    height: 53px;
+    cursor: pointer;
+    padding: 20px 22px;
+
+    &:focus {
+        @include change_focus_border;
+    }
 }
 
-input[type="radio"] {
+input[type=radio] {
     width: 20px;
     height: 20px;
     vertical-align: middle;
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    margin-right: 20px;
+    width: 24px;
+    cursor: pointer;
+}
+
+textarea {
+    @include set_border;
+    @include set_font(1.175rem);
+    
+    margin-top: 10px;
+    width: 100%;
+    height: 109px;
+    resize: none;
+    cursor: pointer;
+    padding: 15px 25px 15px 22px;
+
+    &:focus {
+        @include change_focus_border;
+    }
+}
+
+button {
+    margin-top: 45px;
+    color: $white;
+    background-color: $green_600;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 700;
+    height: 62px;
+    border: 1px solid $green_600;
+    font-size: 1.125rem;
+    font-family: "Karla", sans-serif;
 }
 
 .name-container {
@@ -78,4 +122,17 @@ input[type="radio"] {
 
 .success-msg, .error-message {
     display: none;
+}
+
+.consent-container {
+    display: flex;
+    margin-top: 41px;
+
+    & label {
+        cursor: pointer;
+
+        &::after {
+            @include add_require_symbol("\a0*");
+        }
+    }
 }

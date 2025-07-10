@@ -18,8 +18,8 @@ body {
     color: $grey_900;
 }
 
-@mixin add_require_symbol {
-    content: "\a0\a0\a0*";
+@mixin add_require_symbol($val) {
+    content: $val;
     color: $green_600;
 }
 
@@ -31,4 +31,15 @@ body {
 @mixin flex_gap_20 {
     display: flex;
     gap: 20px;
+}
+
+@mixin set_font($size) {
+    font-family: "Karla", sans-serif;
+    font-size: $size;
+    color: $grey_900;
+}
+
+@mixin change_focus_border {
+    outline: none;
+    border: 2px solid $green_600;
 }

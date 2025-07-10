@@ -55,9 +55,11 @@
         <textarea id="message" name=""></textarea>
         <span id="messageError" class="error-message">This field is required</span>
 
-        <input type="checkbox" id="consent" name="consent">
-        <label for="consent" class="form-label">I consent to being contacted by the team</label>
-        <span id="consentError" class="error-message">To submit this form, please consent to being contacted</span>
+        <div class="consent-container">
+          <input type="checkbox" id="consent" name="consent">
+          <label for="consent" class="form-label">I consent to being contacted by the team</label>
+          <span id="consentError" class="error-message">To submit this form, please consent to being contacted</span>
+        </div>
 
         <button type="submit">Submit</button>
       </form>
