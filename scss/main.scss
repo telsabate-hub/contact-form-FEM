@@ -73,12 +73,20 @@ input[type=radio] {
     height: 20px;
     vertical-align: middle;
     cursor: pointer;
+
+    &:checked {
+        opacity: 0;
+    }
 }
 
 input[type=checkbox] {
     margin-right: 20px;
     width: 24px;
     cursor: pointer;
+
+    &:checked {
+        opacity: 0;
+    }
 }
 
 textarea {
@@ -120,8 +128,21 @@ button {
     width: 50%;
 }
 
+.query-type-wrapper:hover {
+    cursor: pointer;
+}
+
+.query-type-wrapper label {
+    position: relative;
+
+    &::before {
+        @include set_checked_input_styles("../assets/images/icon-radio-selected.svg", -4px);
+    }
+}
+
 .success-msg, .error-message {
-    display: none;
+    // display: none;
+    color: $red;
 }
 
 .consent-container {
@@ -129,10 +150,28 @@ button {
     margin-top: 41px;
 
     & label {
+        position: relative;
         cursor: pointer;
 
         &::after {
             @include add_require_symbol("\a0*");
         }
+
+        &::before {
+            @include set_checked_input_styles("../assets/images/icon-checkbox-check.svg", -21px);
+        }
     }
+}
+
+.selected-query {
+    border: 2px solid $green_600;
+    background-color: $green_200;
+
+    & label::before {
+        opacity: 1;
+    }
+}
+
+.consented label::before{
+    opacity: 1;
 }

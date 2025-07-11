@@ -43,3 +43,19 @@ body {
     outline: none;
     border: 2px solid $green_600;
 }
+
+@mixin set_checked_input_styles($imgURL, $startX){
+    content: '';
+    display: inline-block;
+    background-image: url($imgURL);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    width: 20px;
+    height: 21px;
+    left: $startX;
+    top: calc(50% + 1px);
+    transform: translate(-100%, -50%);
+    opacity: 0;
+}
