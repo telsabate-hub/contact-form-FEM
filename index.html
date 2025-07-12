@@ -23,22 +23,22 @@
         <div class="name-container">
           <div class="name-wrapper">
             <label for="firstName" class="form-label">First Name</label>
-            <input id="firstName" type="text" name="first-name" autocomplete="given-name" required>
+            <input id="firstName" type="text" name="first-name" autocomplete="given-name" aria-required="true" aria-invalid="false">
             <span id="firstNameError" class="error-message">This field is required</span>
           </div>
   
           <div class="name-wrapper">
             <label for="lastName" class="form-label">Last Name</label>
-            <input id="lastName" type="text" name="last-name" autocomplete="family-name" required>
+            <input id="lastName" type="text" name="last-name" autocomplete="family-name" aria-required="true" aria-invalid="false">
             <span id="lastNameError" class="error-message">This field is required</span>
           </div>
         </div>
 
         <label for="email" class="form-label">Email Address</label>
-        <input id="email" type="text" name="email" autocomplete="email" required>
+        <input id="email" type="text" name="email" autocomplete="email" aria-required="true" aria-invalid="false">
         <span id="emailError" class="error-message">Please enter a valid email address</span>
 
-        <fieldset>
+        <fieldset aria-required="true" aria-invalid="false">
           <legend>Query Type</legend>
 
           <div class="query-type-wrapper">
@@ -53,12 +53,14 @@
         <span id="queryTypeError" class="error-message">Please select a query type</span>
 
         <label for="message" class="form-label">Message</label>
-        <textarea id="message" name="" required></textarea>
+        <textarea id="message" name="" aria-required="true" aria-invalid="false"></textarea>
         <span id="messageError" class="error-message">This field is required</span>
 
-        <div class="consent-container">
-          <input type="checkbox" id="consent" name="consent" required>
-          <label for="consent" class="form-label">I consent to being contacted by the team</label>
+        <div>
+          <span class="consent-container">
+            <input type="checkbox" id="consent" name="consent" aria-required="true" aria-invalid="false">
+            <label for="consent" class="form-label">I consent to being contacted by the team</label>
+          </span>
           <span id="consentError" class="error-message">To submit this form, please consent to being contacted</span>
         </div>
 

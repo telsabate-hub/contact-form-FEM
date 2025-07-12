@@ -28,9 +28,9 @@ body {
     border: 1px solid $grey_500;
 }
 
-@mixin flex_gap_20 {
+@mixin flex_gap($gap) {
     display: flex;
-    gap: 20px;
+    gap: $gap;
 }
 
 @mixin set_font($size) {
