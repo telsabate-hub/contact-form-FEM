@@ -92,7 +92,7 @@ input[type=text][aria-invalid=true] {
 }
 input[type=text][aria-invalid=true] + .error-message {
   display: inline-block;
-  margin: 12px 0 3px;
+  margin: 10px 0 3px;
 }
 
 input[type=radio] {
@@ -136,7 +136,7 @@ textarea[aria-invalid=true] {
 }
 textarea[aria-invalid=true] + .error-message {
   display: inline-block;
-  margin: 9px 0 8px;
+  margin: 7px 0;
 }
 
 button {
@@ -232,5 +232,5 @@ button {
 
 .show-consent-error {
   display: inline-block;
-  margin: 9px 0 8px;
+  margin: 14px 0;
 }

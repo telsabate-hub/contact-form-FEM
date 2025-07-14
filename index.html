@@ -19,7 +19,7 @@
   <main>
     <section>
       <h1>Contact Us</h1>
-      <form>
+      <form id="form" onsubmit="processForm(); return false;" novalidate>
         <div class="name-container">
           <div class="name-wrapper">
             <label for="firstName" class="form-label">First Name</label>
@@ -38,7 +38,7 @@
         <input id="email" type="text" name="email" autocomplete="email" aria-required="true" aria-invalid="false">
         <span id="emailError" class="error-message">Please enter a valid email address</span>
 
-        <fieldset aria-required="true" aria-invalid="false">
+        <fieldset id="queryGroup" aria-required="true" aria-invalid="false">
           <legend>Query Type</legend>
 
           <div class="query-type-wrapper">

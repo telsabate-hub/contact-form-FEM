@@ -82,7 +82,7 @@ input[type=text] {
 
     &[aria-invalid=true] + .error-message{
         display: inline-block;
-        margin: 12px 0 3px;
+        margin: 10px 0 3px;
     }
 }
 
@@ -105,11 +105,6 @@ input[type=checkbox] {
     &:checked {
         opacity: 0;
     }
-
-    // &[aria-invalid=true] ~ .error-message{
-    //     display: inline-block;
-    //     margin: 9px 0 8px;
-    // }
 }
 
 textarea {
@@ -133,7 +128,7 @@ textarea {
 
     &[aria-invalid=true] + .error-message{
         display: inline-block;
-        margin: 9px 0 8px;
+        margin: 7px 0;
     }
 }
 
@@ -195,6 +190,11 @@ button {
                 @include set_checked_input_styles("../assets/images/icon-checkbox-check.svg", -21px);
             }
         }
+
+        // & input[aria-invalid=true] + .error-message {
+        //     display: inline-block;
+        //     margin: 9px 0 8px;
+        // }
     // }
 }
 
@@ -213,5 +213,5 @@ button {
 
 .show-consent-error {
     display: inline-block;
-    margin: 9px 0 8px;
+    margin: 14px 0;
 }
