@@ -2,6 +2,9 @@ const radioBtnGroup = document.querySelectorAll('input[name="query"]');
 const checkbox = document.getElementById("consent");
 const queryGroup = document.getElementById( "queryGroup" );
 const consentError = document.getElementById("consentError");
+const myForm = document.getElementById('form');
+const formElements = myForm.querySelectorAll('input');
+const textarea = document.getElementById('message');
 
 for( let i=0; i < radioBtnGroup.length; i++ ){
     radioBtnGroup[i].addEventListener( "change", (e) => {
@@ -28,28 +31,6 @@ checkbox.addEventListener("change", function(e){
     }
 });
 
-const myForm = document.getElementById('form');
-const formElements = myForm.elements;
-
-function processForm(){
-    for(let i = 0; i < formElements.length; i++) {
-        const element = formElements[i];
-
-        if( element.value == "" ){
-            element.setAttribute("aria-invalid", "true");
-        }
-
-        if( element.type == "checkbox" && !element.checked ){
-            element.setAttribute("aria-invalid", "true");
-            consentError.classList.add( "show-consent-error" );
-        }
-    }
-
-    const selectedQuery = document.querySelector('input[name="query"]:checked');
-
-    if( !selectedQuery ) queryGroup.setAttribute("aria-invalid", "true");
-}
-
 for(let i = 0; i < formElements.length; i++) {
     const element = formElements[i];
 
@@ -58,4 +39,76 @@ for(let i = 0; i < formElements.length; i++) {
             e.target.setAttribute("aria-invalid", "false");
         });
     }
+}
+
+textarea.addEventListener( "input", function(e){
+    e.target.setAttribute("aria-invalid", "false");
+});
+
+function processForm(){
+    let isValid = true;
+
+    for(let i = 0; i < formElements.length; i++) {
+        const element = formElements[i];
+
+        if( element.value == "" ){
+            element.setAttribute("aria-invalid", "true");
+            isValid = false;
+        }
+
+        if( element.type == "email" && !element.checkValidity() ){
+            isValid = false;
+        }
+
+        if( element.type == "checkbox" && !element.checked ){
+            element.setAttribute("aria-invalid", "true");
+            consentError.classList.add( "show-consent-error" );
+            isValid = false;
+        }
+    }
+
+    const selectedQuery = document.querySelector('input[name="query"]:checked');
+
+    if( !selectedQuery ){
+        queryGroup.setAttribute("aria-invalid", "true");
+        isValid = false;
+    }
+
+    if( textarea.value == "" ){
+        isValid = false;
+        textarea.setAttribute("aria-invalid", "true");
+    }
+    
+    // console.log(`isValid?`, isValid)
+    if( isValid ){
+        document.getElementById( "successMsg" ).style.display = "block";
+        clearAllInputs();
+    }
+}
+
+function clearAllInputs(){
+    for(let i = 0; i < formElements.length; i++) {
+        const element = formElements[i];
+
+        if( element.type != "checkbox" && element.type != "radio" ){
+            element.setAttribute("aria-invalid", "false");
+            element.value = "";
+        }
+    }
+
+    let selectedQuery = document.querySelector('.selected-query');
+    if( selectedQuery ){
+        selectedQuery.classList.remove( "selected-query" );
+        selectedQuery.querySelector( "input" ).checked = false;
+    }
+
+    queryGroup.setAttribute("aria-invalid", "false");
+    textarea.setAttribute("aria-invalid", "false");
+    textarea.value = "";
+
+    checkbox.setAttribute("aria-invalid", "false");
+    checkbox.checked = false;
+    consentError.classList.remove( "show-consent-error" );
+    checkbox.parentElement.classList.remove( "consented" );
+
 }

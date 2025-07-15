@@ -35,7 +35,7 @@
         </div>
 
         <label for="email" class="form-label">Email Address</label>
-        <input id="email" type="text" name="email" autocomplete="email" aria-required="true" aria-invalid="false">
+        <input id="email" type="email" name="email" autocomplete="email" aria-required="true" aria-invalid="false">
         <span id="emailError" class="error-message">Please enter a valid email address</span>
 
         <fieldset id="queryGroup" aria-required="true" aria-invalid="false">
@@ -67,8 +67,11 @@
         <button type="submit">Submit</button>
       </form>
     </section>
-    <div class="success-msg">
-      <h2>Message Sent!</h2>
+    <div id="successMsg" class="success-msg">
+      <span>
+        <img src="./assets/images/icon-success-check.svg" alt="">
+        <h2>Message Sent!</h2>
+      </span>
       <p>Thanks for completing the form. We'll be in touch soon!</p>
     </div>
   </main>

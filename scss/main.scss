@@ -62,7 +62,7 @@ legend {
     }
 }
 
-input[type=text] {
+input[type=text], input[type=email] {
     @include set_border;
     @include set_font(1.125rem);
 
@@ -72,7 +72,7 @@ input[type=text] {
     cursor: pointer;
     padding: 20px 22px;
 
-    &:focus {
+    &:focus, &:hover {
         @include change_focus_border;
     }
 
@@ -118,7 +118,7 @@ textarea {
     cursor: pointer;
     padding: 15px 25px 15px 22px;
 
-    &:focus {
+    &:focus, &:hover {
         @include change_focus_border;
     }
 
@@ -143,6 +143,10 @@ button {
     border: 1px solid $green_600;
     font-size: 1.125rem;
     font-family: "Karla", sans-serif;
+
+    &:hover {
+        background-color: $grey_900;
+    }
 }
 
 .name-container {
@@ -153,7 +157,6 @@ button {
 
 .name-wrapper, .query-type-wrapper {
     width: 50%;
-    // margin-bottom: 29px;
 }
 
 .query-type-wrapper:hover {
@@ -168,34 +171,27 @@ button {
     }
 }
 
-.success-msg, .error-message {
+.error-message {
     display: none;
     color: $red;
 }
 
 .consent-container {
-    // & span:first-of-type {
-        display: flex;
-        margin-top: 39px;
-    
-        & label {
-            position: relative;
-            cursor: pointer;
-    
-            &::after {
-                @include add_require_symbol("\a0*");
-            }
-    
-            &::before {
-                @include set_checked_input_styles("../assets/images/icon-checkbox-check.svg", -21px);
-            }
+    display: flex;
+    margin-top: 39px;
+
+    & label {
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            @include add_require_symbol("\a0*");
         }
 
-        // & input[aria-invalid=true] + .error-message {
-        //     display: inline-block;
-        //     margin: 9px 0 8px;
-        // }
-    // }
+        &::before {
+            @include set_checked_input_styles("../assets/images/icon-checkbox-check.svg", -21px);
+        }
+    }
 }
 
 .selected-query {
@@ -214,4 +210,30 @@ button {
 .show-consent-error {
     display: inline-block;
     margin: 14px 0;
+}
+
+.success-msg {
+    display: none;
+    background-color: $grey_900;
+    color: $white;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    border-radius: 10px;
+    padding: 25px;
+    transform: translateX(-50%);
+    
+    span {
+        display: flex;
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 1px;
+    }
+
+    img {
+        padding-right: 8px;
+    }
 }

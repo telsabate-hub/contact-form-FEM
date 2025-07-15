@@ -71,7 +71,7 @@ legend::after {
   color: hsl(169, 82%, 27%);
 }
 
-input[type=text] {
+input[type=text], input[type=email] {
   border-radius: 8px;
   border: 1px solid hsl(186, 15%, 59%);
   font-family: "Karla", sans-serif;
@@ -83,14 +83,14 @@ input[type=text] {
   cursor: pointer;
   padding: 20px 22px;
 }
-input[type=text]:focus {
+input[type=text]:focus, input[type=text]:hover, input[type=email]:focus, input[type=email]:hover {
   outline: none;
   border: 2px solid hsl(169, 82%, 27%);
 }
-input[type=text][aria-invalid=true] {
+input[type=text][aria-invalid=true], input[type=email][aria-invalid=true] {
   border-color: hsl(0, 66%, 54%);
 }
-input[type=text][aria-invalid=true] + .error-message {
+input[type=text][aria-invalid=true] + .error-message, input[type=email][aria-invalid=true] + .error-message {
   display: inline-block;
   margin: 10px 0 3px;
 }
@@ -127,7 +127,7 @@ textarea {
   cursor: pointer;
   padding: 15px 25px 15px 22px;
 }
-textarea:focus {
+textarea:focus, textarea:hover {
   outline: none;
   border: 2px solid hsl(169, 82%, 27%);
 }
@@ -150,6 +150,9 @@ button {
   border: 1px solid hsl(169, 82%, 27%);
   font-size: 1.125rem;
   font-family: "Karla", sans-serif;
+}
+button:hover {
+  background-color: hsl(187, 24%, 22%);
 }
 
 .name-container {
@@ -185,7 +188,7 @@ button {
   opacity: 0;
 }
 
-.success-msg, .error-message {
+.error-message {
   display: none;
   color: hsl(0, 66%, 54%);
 }
@@ -233,4 +236,27 @@ button {
 .show-consent-error {
   display: inline-block;
   margin: 14px 0;
+}
+
+.success-msg {
+  display: none;
+  background-color: hsl(187, 24%, 22%);
+  color: hsl(0, 0%, 100%);
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  border-radius: 10px;
+  padding: 25px;
+  transform: translateX(-50%);
+}
+.success-msg span {
+  display: flex;
+  margin-bottom: 16px;
+}
+.success-msg h2 {
+  font-size: 18px;
+  margin-bottom: 1px;
+}
+.success-msg img {
+  padding-right: 8px;
 }
