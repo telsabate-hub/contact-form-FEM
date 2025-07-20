@@ -260,3 +260,32 @@ button:hover {
 .success-msg img {
   padding-right: 8px;
 }
+
+@media screen and (max-width: 740px) {
+  section {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 350px;
+  }
+  .name-container, fieldset {
+    flex-direction: column;
+  }
+  .name-wrapper, .query-type-wrapper {
+    width: 100%;
+  }
+  textarea {
+    height: 235px;
+  }
+  .consent-container label {
+    line-height: 1.6;
+    width: 250px;
+  }
+  .success-msg {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 350px) {
+  section {
+    width: 90%;
+  }
+}

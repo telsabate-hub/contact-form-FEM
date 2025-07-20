@@ -37,6 +37,7 @@ for(let i = 0; i < formElements.length; i++) {
     if( element.type != "checkbox" && element.type != "radio" ){
         element.addEventListener( "input", function(e){
             e.target.setAttribute("aria-invalid", "false");
+            document.getElementById( "successMsg" ).style.display = "none";
         });
     }
 }
@@ -51,13 +52,14 @@ function processForm(){
     for(let i = 0; i < formElements.length; i++) {
         const element = formElements[i];
 
-        if( element.value == "" ){
+        if( element.value.trim() == "" ){
             element.setAttribute("aria-invalid", "true");
             isValid = false;
         }
 
         if( element.type == "email" && !element.checkValidity() ){
             isValid = false;
+            element.setAttribute("aria-invalid", "true");
         }
 
         if( element.type == "checkbox" && !element.checked ){
@@ -74,12 +76,11 @@ function processForm(){
         isValid = false;
     }
 
-    if( textarea.value == "" ){
+    if( textarea.value.trim() == "" ){
         isValid = false;
         textarea.setAttribute("aria-invalid", "true");
     }
     
-    // console.log(`isValid?`, isValid)
     if( isValid ){
         document.getElementById( "successMsg" ).style.display = "block";
         clearAllInputs();
