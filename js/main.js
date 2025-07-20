@@ -8,7 +8,7 @@ const textarea = document.getElementById('message');
 
 for( let i=0; i < radioBtnGroup.length; i++ ){
     radioBtnGroup[i].addEventListener( "change", (e) => {
-        let radioBtn = e.target;
+        const radioBtn = e.target;
         let selectedQuery = document.querySelector('.selected-query');
         if( selectedQuery ) selectedQuery.classList.remove( "selected-query" );
 
@@ -20,7 +20,7 @@ for( let i=0; i < radioBtnGroup.length; i++ ){
     });
 }
 
-checkbox.addEventListener("change", function(e){
+checkbox.addEventListener("change", function(){
     this.setAttribute("aria-invalid", "false");
     consentError.classList.remove( "show-consent-error" );
 
@@ -34,7 +34,7 @@ checkbox.addEventListener("change", function(e){
 for(let i = 0; i < formElements.length; i++) {
     const element = formElements[i];
 
-    if( element.type != "checkbox" && element.type != "radio" ){
+    if( element.type !== "checkbox" && element.type !== "radio" ){
         element.addEventListener( "input", function(e){
             e.target.setAttribute("aria-invalid", "false");
             document.getElementById( "successMsg" ).style.display = "none";
